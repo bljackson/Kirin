@@ -4,5 +4,5 @@ class Post < ActiveRecord::Base
 
 	has_many :replies, :dependent => :nullify
 
-	validates :text, presence: true
+	validates :content, presence: true
 end

@@ -4,7 +4,14 @@
         <h3><%= link_to forum.name, '#' %></h3>
         <div class='description'><%= forum.description %></div>
     </td>
-    <td class="topics-count">wehh</td>
-    <td class="posts-count">wehh</td>
-    <td class="last_post">wehh</td>
+    <td class="topics-count"><%= topics_count(forum) %></td>
+    <td class="posts-count"><%= posts_count(forum) %></td>
+    <td class="last-post">
+    	<% if last_post(forum) %>
+	    	<%= link_to last_post(forum).topic.title, '#' %> 
+	    	by
+	    	<%= last_post(forum).user.name %>
+	    	<time datetime="<%= last_post(forum).created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(last_post(forum).created_at)} ago" %></time>
+	    <% end %>
+    </td>
 </tr>

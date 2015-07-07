@@ -11,4 +11,8 @@ class Forum < ActiveRecord::Base
 	validates :position, numericality: { only_integer: true }
 
 	default_scope { order(:position) }
+
+	def last_post
+		posts.last
+	end
 end

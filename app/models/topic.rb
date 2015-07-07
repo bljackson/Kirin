@@ -3,9 +3,9 @@ class Topic < ActiveRecord::Base
 	belongs_to :user
 
 	has_many :subscriptions, :dependent => :destroy
-	has_many :posts, :dependent => :destroy, { order: 'posts.created_at ASC'}
+	has_many :posts, :dependent => :destroy
 
-	validates :subject, presence: true, length: { maximum: 255 }
+	validates :title, presence: true, length: { maximum: 255 }
 	validates :user, presence: true
 
 	def close!
