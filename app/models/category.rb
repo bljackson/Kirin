@@ -3,7 +3,7 @@ class Category < ActiveRecord::Base
 
 	validates :name, presence: true,
 					 length: { maximum: 255 }
-	validates :position, numercality: { only_integer: true }
+	validates :position, numericality: { only_integer: true }
 	
     scope :by_position, -> { order(:position) }
 end

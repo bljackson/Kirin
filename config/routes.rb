@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root "forums#index"
+
+  resources :forums
+
   resources :categories
 
   resources :users
