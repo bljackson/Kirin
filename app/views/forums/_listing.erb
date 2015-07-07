@@ -1,0 +1,13 @@
+<table id='forums' class='table table-striped table-hover'>
+    <thead>
+        <tr>
+            <th class="desc-and-last-post"><%= t('forum') %></th>
+            <th class="topics-count"><%= t('topics') %></th>
+            <th class="posts-count"><%= t('posts') %></th>
+            <th class="posts-count"><%= t('last post') %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render category.forums %>
+    </tbody>
+</table>

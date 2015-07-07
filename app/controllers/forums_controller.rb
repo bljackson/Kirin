@@ -4,7 +4,7 @@ class ForumsController < ApplicationController
   # GET /forums
   # GET /forums.json
   def index
-    @forums = Forum.all
+    @categories = Category.by_position
   end
 
   # GET /forums/1

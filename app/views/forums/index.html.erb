@@ -1,12 +1,14 @@
-<div id='forums_container'>
-	<h1 id='forums_title'><%= t('.title') %></h1>
+<div class='container'>
+	<%= render 'partials/logo' %>
 
-	  <%= render @categories %>
+	<%= render 'partials/menu' %>
+
+	<%= render 'partials/breadcrumbs' %>
+
+	<%= render @categories %>
 </div>
 
 <br>
 <footer id='admin_link'>
-	<% if forem_admin? %>
-		<%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
-	<% end %>
+	Copyright Kalyn Horn 2015.
 </footer>

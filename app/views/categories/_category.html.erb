@@ -1,6 +1,18 @@
-<% if can?(:read, category) %>
-	<div id='category_<%= category.id %>' class='category'>
-		<h2><%= link_to category.name, category_path %></h2>
+<!-- Category container -->
+<div class='panel panel-primary'>
+
+	<!-- Category name and description -->
+	<div id='category_<%= category.id %>' class='panel-heading'>
+		<h2><%= link_to category.name, '#' %></h2>
+		<%= category.description %>
+	</div>
+
+	<!-- Category's forums -->
+	<div class='panel-body'>
 		<%= render "forums/listing", :category => category %>
 	</div>
-<% end %>
+
+	<!-- Empty stylistic footer -->
+	<div class='panel-footer'>
+	</div>
+</div>
