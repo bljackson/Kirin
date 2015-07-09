@@ -1,19 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+	<%= render 'partials/logo' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+	<%= render 'partials/menu' %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+	<%= render 'partials/breadcrumbs' %>
 
-<p>
-  <strong>Position:</strong>
-  <%= @category.position %>
-</p>
+	<%= render "category", :category => @category %>
+</div>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= render 'partials/footer' %>

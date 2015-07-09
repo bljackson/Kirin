@@ -1,0 +1,25 @@
+<!-- Topic container -->
+<div class='panel panel-primary'>
+
+	<!-- Topic name and description -->
+	<div class='panel-heading'>
+		<h2><%= link_to topic.title, category_path(topic.id) %></h2>
+		<%= topic.description %>
+	</div>
+
+	<div id="panel-topic" class='panel-body'>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="bg-info topic-options">
+					Subscribe | Email | Printable
+				</div>
+			</div>
+		</div>
+		<!-- Topic's posts -->
+		<%= render 'posts/posts', :topic => topic %>
+	</div>
+
+	<!-- Empty stylistic footer -->
+	<div class='panel-footer'>
+	</div>
+</div>

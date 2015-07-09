@@ -23,4 +23,18 @@ class Topic < ActiveRecord::Base
 	def unpin!
 		update_column(:pinned, false)
 	end
+
+	def status?
+		closed? || pinned?
+	end
+
+	def status
+		if closed? && pinned?
+			'closed pinned'
+		elsif closed?
+			'closed'
+		elsif pinned?
+			'pinned'
+		end
+	end
 end

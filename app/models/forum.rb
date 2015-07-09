@@ -12,7 +12,4 @@ class Forum < ActiveRecord::Base
 
 	default_scope { order(:position) }
 
-	def last_post
-		posts.last
-	end
 end

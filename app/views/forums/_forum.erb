@@ -1,14 +1,13 @@
-
-<tr class="forum <%= cycle("odd", "even") %>">
+<tr id="forum_<%= forum.id %>" class="forum_row">
     <td>
-        <h3><%= link_to forum.name, '#' %></h3>
+        <h3><%= link_to forum.name, forum_path(forum.id) %></h3>
         <div class='description'><%= forum.description %></div>
     </td>
     <td class="topics-count"><%= topics_count(forum) %></td>
     <td class="posts-count"><%= posts_count(forum) %></td>
     <td class="last-post">
     	<% if last_post(forum) %>
-	    	<%= link_to last_post(forum).topic.title, '#' %> 
+	    	<%= link_to last_post(forum).topic.title, topic_path(last_post(forum).topic.id) %> 
 	    	by
 	    	<%= last_post(forum).user.name %>
 	    	<time datetime="<%= last_post(forum).created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(last_post(forum).created_at)} ago" %></time>

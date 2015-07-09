@@ -1,19 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+	<%= render 'partials/logo' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @forum.name %>
-</p>
+	<%= render 'partials/menu' %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @forum.description %>
-</p>
+	<%= render 'partials/breadcrumbs' %>
 
-<p>
-  <strong>Position:</strong>
-  <%= @forum.position %>
-</p>
+	<%= render 'panel', :forum => @forum %>
+</div>
 
-<%= link_to 'Edit', edit_forum_path(@forum) %> |
-<%= link_to 'Back', forums_path %>
+<%= render 'partials/footer' %>

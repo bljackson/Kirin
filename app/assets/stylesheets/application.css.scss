@@ -10,3 +10,89 @@
 .topics-count, .posts-count, .last-post {
 	vertical-align: middle;
 }
+
+h1, h2, h3 {
+	margin-top: 10.5px;
+}
+
+.title {
+	width: 50%;
+}
+
+.topic-title {
+	font-size: 1.4em;
+}
+
+.table {
+	margin-bottom: 0px;
+}
+
+.floatr {
+	float: right;
+}
+
+.floatl {
+	float: left;
+}
+
+.btnbar {
+	text-align: right;
+}
+
+.topbar {
+	vertical-align: middle;
+}
+
+.post-container {
+	padding: 15px;
+	padding-top: 0px;
+}
+
+.topic-options {
+	text-align: right;
+	padding:3px;
+}
+
+.post-options {
+	text-align: right;
+}
+
+.post-top {
+	text-align: right;
+}
+
+@media only screen and (max-width: 800px) {
+	
+	/* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#no-more-tables tr { border: 0px solid #464545; }
+ 
+	#no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 0px solid #464545; 
+		position: relative;
+		white-space: normal;
+		text-align:center;
+	}
+
+	#no-more-tables .post-userinfo, 
+	#no-more-tables .post-top, 
+	#no-more-tables .post-blank, 
+	#no-more-tables .post-user-options {display: none;}
+}
