@@ -96,3 +96,20 @@ h1, h2, h3 {
 	#no-more-tables .post-blank, 
 	#no-more-tables .post-user-options {display: none;}
 }
+
+#error_explanation {
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+.field_with_errors {
+  @extend .has-error;
+}
+
+#footer-row {
+	padding: 15px;
+}
+
+#footer {
+	background-color: $gray-dark;
+}

@@ -1,16 +1,14 @@
 class User < ActiveRecord::Base
-	before_save { self.email = email.downcase }
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
 	validates :name, presence: true, 
 					 length: { maximum: 50 },
 					 uniqueness: { case_sensitive: false }
+	validates :terms_of_service, acceptance: true
 
-	
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true, 
-					  length: { maximum: 255 },
-					  format: { with: VALID_EMAIL_REGEX },
-					  uniqueness: { case_sensitive: false }
-
-	has_secure_password
+  # Setup accessible (or protected) attributes
+  attr_accessor :name, :email, :password, :password_confirmation, :terms_of_service
 end
