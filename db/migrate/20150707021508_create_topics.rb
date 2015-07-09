@@ -5,6 +5,8 @@ class CreateTopics < ActiveRecord::Migration
       t.text :description
       t.integer :forum_id
       t.integer :user_id
+  	  t.boolean :closed, :null => false, :default => false
+  	  t.boolean :pinned, :null => false, :default => false
 
       t.timestamps
     end

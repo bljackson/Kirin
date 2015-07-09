@@ -11,8 +11,12 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.3.5'
 # Bootswatch Bootstrap themes
 gem 'bootswatch-rails'
+# Use Devise for secure user authentication
+gem 'devise'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# CoffeeScriptSource downgraded to play nice with Windows
+gem 'coffee-script-source', '1.8.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

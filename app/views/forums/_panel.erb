@@ -3,7 +3,7 @@
 
 	<!-- Forum name and description -->
 	<div id='forum<%= forum.id %>' class='panel-heading'>
-		<h2><%= link_to forum.name, category_path(forum.id) %></h2>
+		<h2><%= link_to forum.name, forum_path(forum.id) %></h2>
 		<%= forum.description %>
 	</div>
 

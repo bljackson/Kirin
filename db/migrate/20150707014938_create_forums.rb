@@ -4,6 +4,7 @@ class CreateForums < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :position
+      t.integer :category_id
 
       t.timestamps
     end

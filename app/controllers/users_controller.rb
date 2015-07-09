@@ -61,6 +61,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def change_adminship
+  if current_user.admin
+      @user.toggle_admin
+    else
+      raise "Can't do that."
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

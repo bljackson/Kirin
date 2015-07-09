@@ -6,7 +6,8 @@ class Forum < ActiveRecord::Base
 	has_many :moderator_groups
 	has_many :moderators, :through => :moderator_groups, :source => :group
 
-	validates :category, presence: true
+	# Requires parent category, name, and numerical position to be valid
+	validates :category_id, presence: true
 	validates :name, presence: true
 	validates :position, numericality: { only_integer: true }
 
