@@ -11,14 +11,19 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.3.5'
 # Bootswatch Bootstrap themes
 gem 'bootswatch-rails'
+# Font Awesome for icon fonts
+gem 'font-awesome-sass'
 # Use Devise for secure user authentication
 gem 'devise'
+# Use Kaminari for pagination
+gem 'kaminari'
+
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+#gem 'uglifier', '>= 1.3.0'
 # CoffeeScriptSource downgraded to play nice with Windows
-gem 'coffee-script-source', '1.8.0'
+#gem 'coffee-script-source', '1.8.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+#gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -32,7 +37,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+#gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'

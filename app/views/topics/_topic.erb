@@ -1,19 +1,22 @@
-<tr class="topic_row <%= cycle("odd", "even") %>">
+<tr class="topic_row">
     <!-- Status icon -->
-    <td>
-        <% if topic.status? %>
-            <span class="<%= topic.status %>" sr-only="<%= topic.status %>"></span>
+    <td id="status">
+        <% if !topic.pinned %>
+            <span class="pinned" sr-only="Pinned"></span>
+        <% end %>
+        <% if !topic.closed %>
+            <span class="closed" sr-only="Closed"></span>
         <% end %>
     </td>
 
     <!-- Topic title -->
-    <td class="title">
+    <td id="title">
         <h3 class="topic-title"><%= link_to topic.title, topic_path(topic.id) %></h3>
         <div class="description"><%= topic.description %></div>
     </td>
-    <td class="posts-count"><%= posts_count(topic) %></td>
-    <td class="views-count"></td>
-    <td class="last-post">
+    <td id="posts-count" class="posts-count"><%= posts_count(topic) %></td>
+    <td id="views-count" class="views-count"></td>
+    <td id="last-post">
     	<% if last_post(topic) %>
             <%= link_to 'Last post', post_path(last_post(topic).id) %>
             <time datetime="<%= last_post(topic).created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(last_post(topic).created_at)} ago" %></time> 

@@ -1,3 +1,7 @@
+<% scope = @topic.posts.page(params[:page]).per(2) %>
+
+<%= paginate scope %>
+
 <!-- Topic container -->
 <div class='panel panel-primary'>
 
@@ -23,3 +27,5 @@
 	<div class='panel-footer'>
 	</div>
 </div>
+
+<%= paginate scope %>

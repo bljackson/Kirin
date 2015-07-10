@@ -2,13 +2,19 @@
 @import "bootswatch/darkly/variables";
 @import "bootstrap";
 @import "bootswatch/darkly/bootswatch";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .panel-body {
 	padding:0px;
 }
 
-.topics-count, .posts-count, .last-post {
+#topics-count, #posts-count, #last-post, #status {
 	vertical-align: middle;
+}
+
+#status {
+	text-align: center;
 }
 
 h1, h2, h3 {
@@ -95,6 +101,15 @@ h1, h2, h3 {
 	#no-more-tables .post-top, 
 	#no-more-tables .post-blank, 
 	#no-more-tables .post-user-options {display: none;}
+
+	#topics_table {
+		@extend #no-more-tables;
+	}
+
+	#topics_table .posts-count,
+	#topics_table .views-count {
+		display: none;
+	}
 }
 
 #error_explanation {
@@ -117,4 +132,51 @@ h1, h2, h3 {
 	@extend .btn;
 	@extend .btn-sm;
 	@extend .btn-primary;
+}
+
+.pagination-container {
+	text-align: center;
+}
+
+.next {
+	@extend .fa;
+	@extend .fa-angle-right;
+}
+
+.previous {
+	@extend .fa;
+	@extend .fa-angle-left;
+}
+
+.last {
+	@extend .fa;
+	@extend .fa-angle-double-right;
+}
+
+.first {
+	@extend .fa;
+	@extend .fa-angle-double-left;
+}
+
+.closed {
+	@extend .fa;
+	@extend .fa-remove;
+	@extend .fa-lg;
+	color: $brand-danger;
+}
+
+.pinned {
+	@extend .fa;
+	@extend .fa-thumb-tack;
+	@extend .fa-lg;
+	color: $brand-warning;
+}
+
+#status {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.paginator {
+	@extend .pagination;
 }
