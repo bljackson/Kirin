@@ -134,10 +134,6 @@ h1, h2, h3 {
 	@extend .btn-primary;
 }
 
-.pagination-container {
-	text-align: center;
-}
-
 .next {
 	@extend .fa;
 	@extend .fa-angle-right;
@@ -179,4 +175,36 @@ h1, h2, h3 {
 
 .paginator {
 	@extend .pagination;
+}
+
+.new-topic {
+	@extend .btn;
+	@extend .btn-info;
+}
+
+.new-poll {
+	@extend .btn;
+	@extend .btn-warning;
+}
+
+.reply {
+	@extend .btn;
+	@extend .btn-info;
+}
+
+.button-container {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.reply-container {
+	@extend .col-md-3;
+	text-align: right;
+	margin: 21px 0px;
+}
+
+.pagination-container {
+	@extend .col-md-6;
+	@extend .col-md-offset-3;
+	text-align: center;
 }

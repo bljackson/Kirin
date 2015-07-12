@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  @topics = Topic.order("created_at").page(params[:page]).per(15)
-
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(2) # 2 for debugging
+    # Of course this one works.
   end
 
   # GET /posts/1

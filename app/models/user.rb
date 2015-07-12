@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
 				return true if roles.collect{|r| r.name.downcase }.include?(check)
 			end
 			return false
+		elsif match = matches_dynamic_perm_check?(method_id)
+			tokenize_roles(match.captures.first).each do |check|	
+				return true if permissions.collect{|p| p.name.downcase }.include?(check)
+			end
+			return false
 		else
 			super
 		end
@@ -33,8 +38,8 @@ class User < ActiveRecord::Base
   private
 
 		def default_role
-			if is_first_user? && !self.roles.include?(Role.find_by_name('Administrator'))
-	    	self.roles << Role.find_by_name('Administrator')
+			if is_first_user? && !self.roles.include?(Role.find_by_name('Admin'))
+	    	self.roles << Role.find_by_name('Admin')
 	    elsif !self.roles.include?(Role.find_by_name('User'))
 	    	self.roles << Role.find_by_name('User')
 	    end

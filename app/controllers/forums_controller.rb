@@ -10,6 +10,30 @@ class ForumsController < ApplicationController
   # GET /forums/1
   # GET /forums/1.json
   def show
+    f = @forum
+    fs = []
+
+    if f.parent_type == "Forum"
+
+      # Find all forum parents
+      while f.parent_type == "Forum"
+        f = Forum.find(f.parent_id)
+        fs << f
+      end
+
+      # Add breadcrumb for Category root
+      c = Category.find(f.parent_id)
+      add_breadcrumb c.name
+
+      # Add breadcrumbs for Forum leaves
+      for f in fs
+        add_breadcrumb f.name
+      end
+
+    elsif @forum.parent_type == "Category"
+      add_breadcrumb Category.find(@forum.parent_id).name, '/'
+    end
+    add_breadcrumb @forum.name, '/'
   end
 
   # GET /forums/new

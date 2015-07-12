@@ -1,5 +1,8 @@
-<ol class="breadcrumb">
-	<li><a href="#">Home</a></li>
-	<li><a href="#">Test</a></li>
-	<li class="active">Test2</li>
-</ol>
+<% if @breadcrumbs %>
+	<ol class="breadcrumb">
+	  <% @breadcrumbs[0..-2].each do |txt, path| %>
+	    <li><%= link_to(h(txt), path) %></li>
+	  <% end %>
+	  <li class="active"><%= h(@breadcrumbs.last.first) %></li>
+	</ol>
+<% end %>

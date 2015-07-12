@@ -8,12 +8,18 @@
 Permission.create(name: "Post", description: "Ability to post.")
 Permission.create(name: "Create", description: "Ability to start a topic.")
 Permission.create(name: "View", description: "Ability to view a topic.")
-Permission.create(name: "DeletePosts", description: "Ability to delete posts.")
-Permission.create(name: "DeleteTopics", description: "Ability to delete topics.")
+Permission.create(name: "Delete Posts", description: "Ability to delete posts.")
+Permission.create(name: "Delete Topics", description: "Ability to delete topics.")
 Permission.create(name: "Close", description: "Ability to close topics.")
 
 user_role = Role.create(name: "User", description: "A user capable of posting and editing their profile.")
 user_role.permissions = [Permission.find(1), Permission.find(2), Permission.find(3)]
 
-admin_role = Role.create(name: "Administrator", description: "A user capable of accessing the Admin Dashboard.")
+admin_role = Role.create(name: "Admin", description: "A user capable of accessing the Admin Dashboard.")
 admin_role.permissions = Permission.all
+
+User.create(name: "Admin", email: "admin@istrator.com", password: "Echidna5")
+
+Category.create(name: "Neopets", description: "A virtual pets site.", position: 0)
+Forum.create(name: "Types of pets", description: "There are many different types of pets.", position: 0, category_id: 1)
+Topic.create(title: "Lupe", description: "A wolf-like pet. The superior pet.", forum_id: 1, user_id: 1)

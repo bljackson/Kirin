@@ -1,13 +1,19 @@
 class Forum < ActiveRecord::Base
-	belongs_to :category
+	# Can belong to Forum or Category
+	belongs_to :parent, polymorphic: true,
+	                    class_name: "Forum"
 
+	has_many :subforums, as: :parent, 
+	                     class_name: "Forum",
+	                     foreign_key: "parent_id"
 	has_many :topics
 	has_many :posts, :through => :topics, :dependent => :destroy
 	has_many :moderator_groups
 	has_many :moderators, :through => :moderator_groups, :source => :group
 
-	# Requires parent category, name, and numerical position to be valid
-	validates :category_id, presence: true
+	# Requires parent id, parent type, name, and numerical position to be valid
+	validates :parent_id, presence: true
+	validates :parent_type, presence: true
 	validates :name, presence: true
 	validates :position, numericality: { only_integer: true }
 

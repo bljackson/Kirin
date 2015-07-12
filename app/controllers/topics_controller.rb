@@ -10,6 +10,14 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+  #   forum = Forum.find(@topic.forum_id)
+  #   category = Category.find(forum.category_id)
+  #   add_breadcrumb category.name, '/'
+  #   add_breadcrumb forum.name, '/'
+  #   add_breadcrumb @topic.title, '/'
+
+    @topic = Topic.find(params[:id])
+    @posts = @topic.posts.page(params[:page]).per(2)
   end
 
   # GET /topics/new

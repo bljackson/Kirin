@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709185004) do
+ActiveRecord::Schema.define(version: 20150712022056) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -27,8 +27,11 @@ ActiveRecord::Schema.define(version: 20150709185004) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id"
+    t.integer  "parent_id"
+    t.string   "parent_type"
   end
+
+  add_index "forums", ["parent_id"], name: "index_forums_on_parent_id"
 
   create_table "permissions", force: true do |t|
     t.string   "name"

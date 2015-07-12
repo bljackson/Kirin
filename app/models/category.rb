@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-	has_many :forums
+	has_many :forums, as: :parent
 
 	validates :name, presence: true,
 					 length: { maximum: 255 }

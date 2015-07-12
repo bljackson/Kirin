@@ -1,6 +1,12 @@
-<% scope = @topic.posts.page(params[:page]).per(2) %>
 
-<%= paginate scope %>
+
+<div class="row">
+	<%= paginate @topic_posts %>
+
+	<div class="reply-container">
+		<%= render 'partials/buttons/new_reply' %>
+	</div>
+</div>
 
 <!-- Topic container -->
 <div class='panel panel-primary'>
@@ -28,4 +34,4 @@
 	</div>
 </div>
 
-<%= paginate scope %>
+<%= paginate @topic_posts %>

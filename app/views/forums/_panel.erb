@@ -2,14 +2,10 @@
 
 <%= paginate scope %>
 
-<% if current_user.can_create? %>
-	<%= 'partials/buttons/_new_topic' %>
-<% end %>
-
-<% if current_user.can_poll? %>
-	<%= 'partials/buttons/_new_poll' %>
-<% end %>
-
+<div class="button-container">
+	<%= render 'partials/buttons/new_topic' %>
+	<%= render 'partials/buttons/new_poll' %>
+</div>
 
 <!-- Forum container -->
 <div class='panel panel-primary'>
@@ -21,6 +17,12 @@
 	</div>
 
 	<div class='panel-body'>
+		<!-- Forum's subforums -->
+		<%= render 'subforums', :parent => forum %>
+
+		<!-- Subforum/topic divider -->
+		<%= render 'divider', :forum => forum %>
+
 		<!-- Forum's topics -->
 		<%= render 'topics/listing', :forum => forum %>
 	</div>
