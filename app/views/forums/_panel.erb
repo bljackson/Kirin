@@ -1,10 +1,10 @@
-<% scope = @forum.topics.page(params[:page]).per(2) %>
+<div class="row">
+	<%= paginate @topics %>
 
-<%= paginate scope %>
-
-<div class="button-container">
-	<%= render 'partials/buttons/new_topic' %>
-	<%= render 'partials/buttons/new_poll' %>
+	<div class="button-container">
+		<%= render 'partials/buttons/new_topic' %>
+		<%= render 'partials/buttons/new_poll' %>
+	</div>
 </div>
 
 <!-- Forum container -->

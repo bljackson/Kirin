@@ -13,6 +13,8 @@ class ForumsController < ApplicationController
     f = @forum
     fs = []
 
+    @topics = f.topics.page(params[:page]).per(2) # 2 for debugging
+
     if f.parent_type == "Forum"
 
       # Find all forum parents
@@ -27,13 +29,13 @@ class ForumsController < ApplicationController
 
       # Add breadcrumbs for Forum leaves
       for f in fs
-        add_breadcrumb f.name
+        add_breadcrumb f.name, "/forums/#{f.id}"
       end
 
     elsif @forum.parent_type == "Category"
-      add_breadcrumb Category.find(@forum.parent_id).name, '/'
+      add_breadcrumb Category.find(@forum.parent_id).name, "/categories/#{@forum.parent_id}"
     end
-    add_breadcrumb @forum.name, '/'
+    add_breadcrumb @forum.name, "/forums/#{@forum.id}"
   end
 
   # GET /forums/new

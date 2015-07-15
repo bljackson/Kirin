@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :permissions, :through => :roles
   after_create :default_role
 
+  # Topic/posts relationships
+  has_many :topics
+  has_many :posts
+
   # Sign-up validation
 	validates :name, presence: true, 
 					 length: { maximum: 50 },

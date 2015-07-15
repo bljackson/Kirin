@@ -4,9 +4,11 @@ class Topic < ActiveRecord::Base
 
 	has_many :subscriptions, :dependent => :destroy
 	has_many :posts, :dependent => :destroy
+	accepts_nested_attributes_for :posts
 
 	validates :title, presence: true, length: { maximum: 255 }
-	validates :user, presence: true
+	validates :description, length: { maximum: 255 }
+  	validates_associated :posts
 
 	def close!
 		update_column(:closed, true)

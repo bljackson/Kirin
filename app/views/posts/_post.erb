@@ -1,10 +1,9 @@
-<% for post in @topic.posts %>
 <div id="no-more-tables">
 	<table class="table table-striped">
 		<tr>
 			<!-- Username -->
 			<td class="post-user">
-				<%= link_to post.user.name, user_path(post.user.id) %>
+				<%= link_to User.find(post.user_id).name, user_path(post.user_id) %>
 			</td>
 
 			<!-- Minibuttons: Quote, Reply, Delete -->
@@ -52,5 +51,5 @@
 			</td>
 		</tr>
 	</table>
+	<hr>
 </div>
-<% end %>

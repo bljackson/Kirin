@@ -6,7 +6,7 @@ class Forum < ActiveRecord::Base
 	has_many :subforums, as: :parent, 
 	                     class_name: "Forum",
 	                     foreign_key: "parent_id"
-	has_many :topics
+    has_many :topics, :dependent => :destroy
 	has_many :posts, :through => :topics, :dependent => :destroy
 	has_many :moderator_groups
 	has_many :moderators, :through => :moderator_groups, :source => :group
@@ -18,5 +18,4 @@ class Forum < ActiveRecord::Base
 	validates :position, numericality: { only_integer: true }
 
 	default_scope { order(:position) }
-
 end
