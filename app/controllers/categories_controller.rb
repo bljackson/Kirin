@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     add_breadcrumb @category.name, 'categories_path'
+    @forums = @category.forums.order("forums.position desc")
   end
 
   # GET /categories/new

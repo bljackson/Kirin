@@ -21,5 +21,4 @@ admin_role.permissions = Permission.all
 User.create(name: "Admin", email: "admin@istrator.com", password: "Echidna5")
 
 Category.create(name: "Neopets", description: "A virtual pets site.", position: 0)
-Forum.create(name: "Types of pets", description: "There are many different types of pets.", position: 0, category_id: 1)
-Topic.create(title: "Lupe", description: "A wolf-like pet. The superior pet.", forum_id: 1, user_id: 1)
+Forum.create(name: "Types of pets", description: "There are many different types of pets.", position: 0, parent_id: 1, parent_type: "Category")

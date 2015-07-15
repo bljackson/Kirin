@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    add_breadcrumb @user.name, 'users_path'
   end
 
   # GET /users/new

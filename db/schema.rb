@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712022056) do
+ActiveRecord::Schema.define(version: 20150715195433) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -25,19 +25,17 @@ ActiveRecord::Schema.define(version: 20150712022056) do
     t.string   "name"
     t.text     "description"
     t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "parent_id"
     t.string   "parent_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "forums", ["parent_id"], name: "index_forums_on_parent_id"
 
   create_table "permissions", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.string "description"
   end
 
   create_table "permissions_roles", id: false, force: true do |t|
@@ -62,12 +60,10 @@ ActiveRecord::Schema.define(version: 20150712022056) do
   end
 
   create_table "roles_users", force: true do |t|
-    t.integer  "users_id"
-    t.integer  "roles_id"
-    t.integer  "role_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "users_id"
+    t.integer "roles_id"
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   add_index "roles_users", ["roles_id"], name: "index_roles_users_on_roles_id"
@@ -78,19 +74,11 @@ ActiveRecord::Schema.define(version: 20150712022056) do
     t.text     "description"
     t.integer  "forum_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.boolean  "closed",      default: false, null: false
     t.boolean  "pinned",      default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  create_table "user_roles", force: true do |t|
-    t.integer "users_id"
-    t.integer "roles_id"
-  end
-
-  add_index "user_roles", ["roles_id"], name: "index_user_roles_on_roles_id"
-  add_index "user_roles", ["users_id"], name: "index_user_roles_on_users_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -113,6 +101,7 @@ ActiveRecord::Schema.define(version: 20150712022056) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.datetime "last_seen_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

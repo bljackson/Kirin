@@ -1,14 +1,22 @@
 <!-- Category container -->
-<div class='panel panel-primary'>
+<div id='category-<%= category.id %>-container' class='panel panel-primary'>
 
 	<!-- Category name and description -->
-	<div id='category_<%= category.id %>' class='panel-heading'>
+	<div class='panel-heading'>
 		<h2><%= link_to category.name, category_path(category.id) %></h2>
 		<%= category.description %>
+
+		<a class="pull-right panel-title"
+		   role="button"
+		   data-toggle="collapse" 
+           href="#category-<%= category.id %>-body"
+           aria-controls="category-<%= category.id %>-body">
+			+
+		</a>
 	</div>
 
 	<!-- Category's forums -->
-	<div class='panel-body'>
+	<div class='panel-body collapse in' id="category-<%= category.id %>-body">
 		<%= render "forums/listing", :parent => category %>
 	</div>
 

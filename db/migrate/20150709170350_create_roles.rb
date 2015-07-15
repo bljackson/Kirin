@@ -6,5 +6,10 @@ class CreateRoles < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    create_table :permissions do |t|
+    	t.string :name
+    	t.string :description
+    end
   end
 end

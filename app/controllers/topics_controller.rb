@@ -58,6 +58,7 @@ class TopicsController < ApplicationController
     user_id = current_user.id || 1
     @topic = Topic.new(topic_params)
     @topic.user_id = user_id
+    @post = @topic.posts.first
     @post.user_id = @topic.user_id
     @post.content = topic_params[:posts_attributes]["0"][:content]
 
@@ -67,7 +68,6 @@ class TopicsController < ApplicationController
       render action: 'new'
     end
   end
-
   #   respond_to do |format|
   #     if @topic.save
   #       format.html { redirect_to @topic, notice: 'Topic was successfully created.' }

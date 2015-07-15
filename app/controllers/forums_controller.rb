@@ -13,7 +13,8 @@ class ForumsController < ApplicationController
     f = @forum
     fs = []
 
-    @topics = f.topics.page(params[:page]).per(2) # 2 for debugging
+    @subforums = f.subforums.order("subforums.position desc")
+    @topics = f.topics.includes(:posts).order("posts.created_at desc").page(params[:page]).per(2)
 
     if f.parent_type == "Forum"
 

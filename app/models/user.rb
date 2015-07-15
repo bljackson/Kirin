@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def is_online?
+	  last_seen_at > 5.minutes.ago
+	end
+
   private
 
 		def default_role

@@ -213,3 +213,49 @@ h1, h2, h3 {
 	@extend .col-md-offset-3;
 	text-align: center;
 }
+
+$border-radius-base:           3px;
+$panel-border-radius:          $border-radius-base;
+$panel-heading-padding:        10px 15px;
+$panel-heading-padding-negate: -10px -15px;
+
+
+.panel {
+  .panel-heading {
+    .nav-tabs {
+      margin:$panel-heading-padding-negate;
+      border-bottom-width:0;
+
+      > li {
+        > a {
+          padding:$panel-heading-padding;
+          margin-bottom:1px;
+          margin-right:0;
+          border-radius:0;
+
+          border:solid 0 transparent;
+          &:hover {
+            border-color: transparent;
+          }
+        }
+
+
+        &:first-child > a{
+          border-top-left-radius:$panel-border-radius;
+        }
+        &:last-child > a {
+          border-top-right-radius:$panel-border-radius;
+        }
+
+        &.active > a {
+          &, 
+          &:hover,
+          &:focused {
+            border:solid 0 transparent;
+            background-color: #fff;						
+          }
+        }
+      }
+    }
+  }
+}
