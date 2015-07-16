@@ -1,18 +1,18 @@
- jQuery(document).ready(function(){  
- 
-  //target the class 'accordion-body' 
-  jQuery('.panel-body').on('shown', function(e){
- 
-   //save the uncollapsed/shown item ID to your cookie:
-   jQuery.cookie('cookie_collapse', jQuery(e.target).attr('id'));
+$(document).ready(function() {
+
+  $('.collapse').each(function(i, obj) {
+    $(this).on('hidden.bs.collapse', function() {
+        localStorage.setItem( $(this).attr("id"), "hidden" );
+    });
+    $(this).on('shown.bs.collapse', function() {
+        localStorage.removeItem( $(this).attr("id") );
+    });
   });
- 
-  var lastCollapse = jQuery.cookie('cookie_collapse');
- 
-    //if the cookie exists:-
-    //activate uncollapsed item by adding the class 'in' to the saved ID
-     if (lastCollapse) {
-      var lastCollapse = '#' + lastCollapse
-      jQuery(lastCollapse).addClass('in');
-     }
- } );
+
+  for (var i in localStorage) {
+    var val = localStorage[i];
+    if (val == "hidden") {
+      $("#" + i).collapse('hide');
+    }
+  }
+});

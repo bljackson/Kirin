@@ -25,17 +25,19 @@ ActiveRecord::Schema.define(version: 20150715195433) do
     t.string   "name"
     t.text     "description"
     t.integer  "position"
-    t.integer  "parent_id"
-    t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.string   "parent_type"
   end
 
   add_index "forums", ["parent_id"], name: "index_forums_on_parent_id"
 
   create_table "permissions", force: true do |t|
-    t.string "name"
-    t.string "description"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "permissions_roles", id: false, force: true do |t|
@@ -60,10 +62,12 @@ ActiveRecord::Schema.define(version: 20150715195433) do
   end
 
   create_table "roles_users", force: true do |t|
-    t.integer "users_id"
-    t.integer "roles_id"
-    t.integer "role_id"
-    t.integer "user_id"
+    t.integer  "users_id"
+    t.integer  "roles_id"
+    t.integer  "role_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "roles_users", ["roles_id"], name: "index_roles_users_on_roles_id"
@@ -74,11 +78,19 @@ ActiveRecord::Schema.define(version: 20150715195433) do
     t.text     "description"
     t.integer  "forum_id"
     t.integer  "user_id"
-    t.boolean  "closed",      default: false, null: false
-    t.boolean  "pinned",      default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "closed",      default: false, null: false
+    t.boolean  "pinned",      default: false, null: false
   end
+
+  create_table "user_roles", force: true do |t|
+    t.integer "users_id"
+    t.integer "roles_id"
+  end
+
+  add_index "user_roles", ["roles_id"], name: "index_user_roles_on_roles_id"
+  add_index "user_roles", ["users_id"], name: "index_user_roles_on_users_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
